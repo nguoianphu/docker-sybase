@@ -1,0 +1,87 @@
+# This file was built by the Replay feature of InstallAnywhere.
+# It contains variables that were set by Panels, Consoles or Custom Code.
+
+
+
+#Validate Response File
+#----------------------
+RUN_SILENT=true
+
+#Choose Install Folder
+#---------------------
+USER_INSTALL_DIR=/opt/sybase
+
+#Choose Update Install Option
+#----------------------------
+DO_UPDATE_INSTALL=false
+
+#Choose Install Set
+#------------------
+CHOSEN_FEATURE_LIST=fase_srv,fase_agent,fase_add_lm,fopen_client,fdblib,fjconnect70,fsysam_util,fscc_server,fasemap,fase_snmp_agent
+CHOSEN_INSTALL_FEATURE_LIST=fase_srv,fase_agent,fase_add_lm,fopen_client,fdblib,fjconnect70,fsysam_util,fscc_server,fasemap,fase_snmp_agent
+CHOSEN_INSTALL_SET=Custom
+
+#Choose Product License Type
+#---------------------------
+SYBASE_PRODUCT_LICENSE_TYPE=license
+
+#Choose Sybase Software Asset Management License
+#-----------------------------------------------
+SYSAM_LICENSE_SOURCE=proceed_without_license
+SYSAM_LICENSE_FILE_PATHNAME=
+SYSAM_EXISTING_LICENSE_SERVER_HOSTNAME=
+SYSAM_EXISTING_LICENSE_SERVER_PORTNUMBER=
+
+#Choose SYSAM Product Edtion and License Type
+#--------------------------------------------
+# SYSAM_PRODUCT_EDITION=Enterprise Edition
+# SYSAM_LICENSE_TYPE=AR :  OEM Application Deployment Server License
+
+SYSAM_PRODUCT_EDITION=Developer Edition
+SYSAM_LICENSE_TYPE=None
+
+#Software Asset Management Notification Setting
+#----------------------------------------------
+SYSAM_NOTIFICATION_ENABLE=false
+SYSAM_NOTIFICATION_SMTP_HOSTNAME=smtp
+SYSAM_NOTIFICATION_SMTP_PORTNUMBER=25
+SYSAM_NOTIFICATION_SENDER_EMAIL=sybase
+SYSAM_NOTIFICATION_RECIPIENT_EMAIL=sybase
+SYSAM_NOTIFICATION_EMAIL_SEVERITY=NONE
+
+#Install
+#-------
+-fileOverwrite_/opt/sybase/sybuninstall/ASESuite/uninstall.lax=Yes
+
+#Sybase Control Center Service
+#-----------------------------
+CONFIG_SCC_HTTP_PORT=8282
+CONFIG_SCC_HTTPS_PORT=8283
+
+#Sybase Control Center - Configure RMI Port
+#------------------------------------------
+SCC_RMI_PORT_NUMBER=9999
+
+#Sybase Control Center - Security Login Modules
+#----------------------------------------------
+CONFIG_SCC_CSI_SCCADMIN_PWD=Sybase4me
+CONFIG_SCC_CSI_UAFADMIN_PWD=Sybase4me
+
+#Start Sybase Control Center
+#--------------------------
+START_SCC_SERVER=No
+
+#Remember ASE Password
+#---------------------
+ASEP_REMEMBER_PASSWORD=FALSE
+
+#Configure New Servers
+#---------------------
+SY_CONFIG_ASE_SERVER=false
+SY_CONFIG_BS_SERVER=false
+SY_CONFIG_XP_SERVER=false
+SY_CONFIG_JS_SERVER=false
+SY_CONFIG_SM_SERVER=false
+SY_CONFIG_WS_SERVER=false
+SY_CONFIG_SCC_SERVER=false
+SY_CONFIG_TXT_SERVER=false

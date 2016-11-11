@@ -1,0 +1,25 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - echo "Build local image"
+  - docker build -t sybase .
+  - docker images
+  - docker run --name my-sybase -d -p 5000:5000 sybase
+  - echo "Wait sybase to start up"    
+  - docker ps -a  
+  - docker logs my-sybase
+  - docker exec -it my-sybase ps -ef
+  - echo "Checking sybase"
+  - docker exec -it my-sybase isql -U sa -P myPass -S MYSYBASE
+  - docker stop my-sybase
+  - echo "Testing public image on Docker Hub"
+  - docker run -d -p 5000:5000  --name nguoianphu-sybase nguoianphu/docker-sybase
+  - docker ps -a
+  - docker images
+  - echo "Checking sybase"  
+  - docker logs nguoianphu-sybase
+  - docker exec -it nguoianphu-sybase ps -ef
+  - docker exec -it my-sybase isql -U sa -P myPass -S MYSYBASE  
+  - docker stop nguoianphu-sybase
