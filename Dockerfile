@@ -26,7 +26,7 @@ MAINTAINER Tuan Vo <vohungtuan@gmail.com>
 # ADD http://d1cuw2q49dpd0p.cloudfront.net/ASE16.0/Linux16SP02/ASE_Suite.linuxamd64.tgz /opt/tmp/
 RUN set -x \
  && curl -OLS http://d1cuw2q49dpd0p.cloudfront.net/ASE16.0/Linux16SP02/ASE_Suite.linuxamd64.tgz \
- | tar xfz ASE_Suite.linuxamd64.tgz -C /opt/tmp/ \
+ && tar xfz ASE_Suite.linuxamd64.tgz -C /opt/tmp/ \
  && rm -rf ASE_Suite.linuxamd64.tgz
 
 
