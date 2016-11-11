@@ -21,8 +21,14 @@ MAINTAINER Tuan Vo <vohungtuan@gmail.com>
 # Docker docs
 # If <src> is a local tar archive in a recognized compression format (identity, gzip, bzip2 or xz) then it is unpacked as a directory.
 # Resources from remote URLs are not decompressed.
+# Because image size matters, using ADD to fetch packages from remote URLs is strongly discouraged; you should use curl or wget instead.
 
-ADD http://d1cuw2q49dpd0p.cloudfront.net/ASE16.0/Linux16SP02/ASE_Suite.linuxamd64.tgz /opt/tmp/
+# ADD http://d1cuw2q49dpd0p.cloudfront.net/ASE16.0/Linux16SP02/ASE_Suite.linuxamd64.tgz /opt/tmp/
+RUN set -x \
+ && curl -SL http://d1cuw2q49dpd0p.cloudfront.net/ASE16.0/Linux16SP02/ASE_Suite.linuxamd64.tgz \
+ | tar xfz /opt/tmp/ASE_Suite.linuxamd64.tgz -C /opt/tmp/ \
+ && rm -rf ASE_Suite.linuxamd64.tgz
+
 
 COPY assets/* /opt/tmp/
 
@@ -40,8 +46,7 @@ RUN set -x \
 
 
 # Install Sybase
-RUN tar xfz /opt/tmp/ASE_Suite.linuxamd64.tgz -C /opt/tmp/ \
- && rm -rf /opt/tmp/ASE_Suite.linuxamd64.tgz \
+RUN set -x \
  && /opt/tmp/ASE_Suite/setup.bin -f /opt/tmp/sybase-response.txt \
 	-i silent \
     -DAGREE_TO_SAP_LICENSE=true \

@@ -1,5 +1,8 @@
 # Docker Sybase ASE image
 
+[![Build Status](https://travis-ci.org/nguoianphu/docker-sybase.svg?branch=master)](https://travis-ci.org/nguoianphu/docker-sybase)
+[![](https://images.microbadger.com/badges/image/nguoianphu/docker-sybase.svg)](http://microbadger.com/images/nguoianphu/docker-sybase "Get your own image badge on microbadger.com")
+
 ## SAP ASE Developer Edition
         https://go.sap.com/cmp/syb/crm-xu15-int-asewindm/typ.html
 
