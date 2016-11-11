@@ -11,6 +11,7 @@ script:
   - docker ps -a  
   - docker logs my-sybase
   - docker exec -it my-sybase ps -ef
+  - docker exec -it my-sybase cat /opt/sybase/SYBASE.sh
   - echo "Checking sybase"
   - docker exec -it my-sybase isql -U sa -P myPass -S MYSYBASE
   - docker stop my-sybase
