@@ -68,7 +68,8 @@ RUN mv /opt/sybase/interfaces /opt/sybase/interfaces.backup \
  && cp /opt/tmp/interfaces /opt/sybase/ \
  && cp /opt/tmp/sybase-entrypoint.sh /usr/local/bin/ \
  && chmod +x /usr/local/bin/sybase-entrypoint.sh \
- && ln -s /usr/local/bin/sybase-entrypoint.sh /sybase-entrypoint.sh
+ && ln -s /usr/local/bin/sybase-entrypoint.sh /sybase-entrypoint.sh \
+ && source /opt/sybase/SYBASE.sh
 
 ENTRYPOINT ["/sybase-entrypoint.sh"]
 

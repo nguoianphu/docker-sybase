@@ -11,8 +11,10 @@ script:
   - docker ps -a  
   - docker logs my-sybase
   - docker exec -it my-sybase ps -ef
+  - docker exec -it my-sybase export
+  - docker exec -it my-sybase set
   - echo "Checking sybase"
-  - docker exec -it my-sybase source /opt/sybase/SYBASE.sh && isql -U sa -P myPass -S MYSYBASE
+  - docker exec -it my-sybase isql -U sa -P myPass -S MYSYBASE
   - docker stop my-sybase
   - echo "Testing public image on Docker Hub"
   - docker run -d -p 5000:5000  --name nguoianphu-sybase nguoianphu/docker-sybase
@@ -21,5 +23,5 @@ script:
   - echo "Checking sybase"  
   - docker logs nguoianphu-sybase
   - docker exec -it nguoianphu-sybase ps -ef
-  - docker exec -it nguoianphu-sybase source /opt/sybase/SYBASE.sh && isql -U sa -P myPass -S MYSYBASE  
+  - docker exec -it nguoianphu-sybase isql -U sa -P myPass -S MYSYBASE  
   - docker stop nguoianphu-sybase
