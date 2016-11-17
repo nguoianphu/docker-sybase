@@ -49,9 +49,9 @@ RUN set -x \
 # Install Sybase
 RUN set -x \
  && /opt/tmp/ASE_Suite/setup.bin -f /opt/tmp/sybase-response.txt \
-	-i silent \
+    -i silent \
     -DAGREE_TO_SAP_LICENSE=true \
-	-DRUN_SILENT=true
+    -DRUN_SILENT=true
 
 
 # Copy resource file
@@ -71,6 +71,9 @@ RUN mv /opt/sybase/interfaces /opt/sybase/interfaces.backup \
  && ln -s /usr/local/bin/sybase-entrypoint.sh /sybase-entrypoint.sh
  
 
+# Setup the ENV
+# https://docs.docker.com/engine/reference/builder/#run
+RUN ["/bin/bash", "-c", "source /opt/sybase/SYBASE.sh"]
 
 ENTRYPOINT ["/sybase-entrypoint.sh"]
 
