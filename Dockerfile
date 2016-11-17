@@ -73,7 +73,7 @@ RUN mv /opt/sybase/interfaces /opt/sybase/interfaces.backup \
 
 # Setup the ENV
 # https://docs.docker.com/engine/reference/builder/#run
-RUN ["/bin/bash", "-c", "source /opt/sybase/SYBASE.sh"]
+# RUN ["/bin/bash", "-c", "source /opt/sybase/SYBASE.sh"]
 
 ENTRYPOINT ["/sybase-entrypoint.sh"]
 

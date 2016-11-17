@@ -26,6 +26,16 @@
         # or
         docker run -d -p 8000:5000 -p 8001:5001 --name nguoianphu-sybase nguoianphu/docker-sybase
         
+#### Check isql
+
+        docker exec -it my-sybase /bin/bash
+        
+        source /opt/sybase/SYBASE.sh
+        isql -U sa -P myPassword -S MYSYBASE
+        
+        select @@version
+        go
+        
 ### Mount licenses
 
         docker run -d -p 8000:5000 -p 8001:5001 -v /path/to/sybase_licenses:/opt/sybase/SYSAM-2_0/licenses --name my-sybase sybase
