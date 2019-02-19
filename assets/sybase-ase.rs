@@ -10,7 +10,7 @@ sqlsrv.network_protocol_list: tcp
 sqlsrv.network_hostname_list: localhost
 sqlsrv.network_port_list: 5000
 sqlsrv.application_type: MIXED
-sqlsrv.server_page_size: 16k
+sqlsrv.server_page_size: 8k
 sqlsrv.force_buildmaster: no
 sqlsrv.addl_cmdline_parameters:
 sqlsrv.master_device_physical_name: /opt/sybase/data/master.dat
